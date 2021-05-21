@@ -24,7 +24,18 @@
                           out  << leftChild->stringify() << " + " << rightChild->stringify();
                           return out.str();
                   }
- };
+	         int numChildren() {
+			return 2;
+		 }
+		 Base* get_child(int i) {
+			if(i == 0) {
+				return leftChild;
+			}
+			else if (i == 1) {
+				return rightChild;
+			}
+			else return NULL;
+		 }
   
  #endif //__ADD_HPP__
 

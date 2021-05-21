@@ -18,6 +18,15 @@ class Op : public Base {
               out << num;
               return out.str();        
         }
+	int numChildren() {
+		return 0;
+	}
+	Base* get_child(int i) {
+		return NULL;
+	}
+
+
+
 };
 
 #endif //__OP_HPP__

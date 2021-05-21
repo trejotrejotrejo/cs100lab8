@@ -1,5 +1,4 @@
 
-
 #ifndef __POW_HPP__
 #define __POW_HPP__
 
@@ -26,6 +25,20 @@ class Pow : public Base {
                         out << leftChild->evaluate() << " ^ " << rightChild->evaluate();
                         return out.str();
                 }
+		int number_of_children() {
+           		 return 2;
+        	}
+        	Base* get_child(int i) {
+            		if(i == 0) {
+				return leftChild;
+            		}
+			else if(i == 1) {
+				return rightChild;
+			}
+            		else return NULL;
+        	}
+
+
 };
 
 #endif //__POW_HPP__

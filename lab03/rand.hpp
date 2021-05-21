@@ -12,6 +12,12 @@ class Rand: public Base {
         Rand() { num = rand() % 100; }
         virtual double evaluate() { return num; }
         virtual std::string stringify() { return std::to_string(num);}	
+	int number_of_children() { 	
+		return 0; 
+	}
+        Base* get_child(int i) { 
+		return this; 
+	}
 };
 
 #endif //__RAND_HPP__
