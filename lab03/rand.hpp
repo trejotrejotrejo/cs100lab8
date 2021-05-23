@@ -18,6 +18,10 @@ class Rand: public Base {
         Base* get_child(int i) { 
 		return this; 
 	}
+	void accept(Visitor* visitor, int index) {
+		visitor->visit_rand(this);
+	}
+
 };
 
 #endif //__RAND_HPP__

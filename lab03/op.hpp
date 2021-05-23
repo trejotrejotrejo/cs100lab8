@@ -24,7 +24,9 @@ class Op : public Base {
 	Base* get_child(int i) {
 		return NULL;
 	}
-
+	void accept(Visitor* visitor, int index) {
+        visitor -> visit_op(this);
+        }
 
 
 };
