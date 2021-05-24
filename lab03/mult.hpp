@@ -2,7 +2,6 @@
 #define __MULT_HPP__
  
  #include "base.hpp"
- #include "op.hpp"
  #include <string>
  #include <iostream>
  
@@ -35,8 +34,17 @@
             		}
 			else return NULL;
         	}
-
-
+		void accept(Visitor* visitor, int index) {
+                         if (index == 0) {
+                                 visitor->visit_mult_begin(this);
+                         }
+                         else if (index == 1) {
+                                 visitor->visit_mult_middle(this);
+                         }
+                         else if (index == 2) {
+                                 visitor->visit_mult_end(this);
+                         }
+                }
  };
- 
+
  #endif //__MULT_HPP__

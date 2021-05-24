@@ -27,14 +27,26 @@ class Sub : public Base {
                         return 2;
                 }
                 Base* get_child(int i) {
-                if(i == 0) {
-		        return leftChild;
-	        }            
-                else if(i == 1) {
-			return rightChild;
-		}
+                	if(i == 0) {
+		        	return leftChild;
+	        	}            
+               		else if(i == 1) {
+				return rightChild;
+			}
             		else return NULL;
         	}
+		void accept(Visitor* visitor, int index) {
+                           if (index == 0) {
+                                   visitor->visit_sub_begin(this);
+                           }
+                           else if (index == 1) {
+                                   visitor->visit_sub_middle(this);
+                           }
+                           else if (index == 2) {
+                                   visitor->visit_sub_end(this);
+                           }
+                 }
+
 };
 
 #endif //__SUB_HPP__

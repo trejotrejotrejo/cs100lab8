@@ -3,10 +3,9 @@
 #define __POW_HPP__
 
 #include "base.hpp"
-#include "op.hpp"
 #include <string>
 #include <iostream>
-#include <cmath>
+#include <math.h>
 
 class Pow : public Base {
         private:
@@ -37,7 +36,17 @@ class Pow : public Base {
 			}
             		else return NULL;
         	}
-
+		void accept(Visitor* visitor, int index) {
+                          if (index == 0) {
+                                  visitor->visit_pow_begin(this);
+                          }
+                          else if (index == 1) {
+                                  visitor->visit_pow_middle(this);
+                          }
+                          else if (index == 2) {
+                                  visitor->visit_pow_end(this);
+                          }
+                 }
 
 };
 
