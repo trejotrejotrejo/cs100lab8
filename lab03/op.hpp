@@ -2,6 +2,7 @@
 #define __OP_HPP__
    
 #include "base.hpp"
+#include "../visitor.hpp"
 #include <string>
 #include <iostream>
 #include <iomanip>
@@ -25,7 +26,7 @@ class Op : public Base {
 		return NULL;
 	}
 	void accept(Visitor* visitor, int index) {
-        visitor -> visit_op(this);
+	        visitor->visit_op(this);
         }
 
 
