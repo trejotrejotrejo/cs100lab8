@@ -1,5 +1,4 @@
 #include "gtest/gtest.h"
-#include "lab03/base.hpp"
 #include "lab03/op.hpp"
 #include "lab03/mult.hpp"
 #include "lab03/add.hpp"
