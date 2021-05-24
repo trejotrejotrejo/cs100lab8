@@ -13,8 +13,8 @@ class Op : public Base {
 	double num;
     public:
         Op(double value) : Base() { num = value; }
-        virtual double evaluate() { return num; }
-        virtual std::string stringify() { 
+        double evaluate() { return num; }
+        std::string stringify() { 
               std::stringstream out;
               out << num;
               return out.str();        
