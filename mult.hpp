@@ -23,9 +23,15 @@
                           return out.str();
                   }
 		virtual int number_of_children() {
-           		  return 2;
+           		 int num = 0;
+               		if(leftChild!= nullptr)
+                       		 ++num;
+                	if(rightChild!= nullptr)
+                       		 ++num;
+               		 return num;
         	}
-       		 virtual Base* get_child(int i) {
+       		virtual Base* get_child(int i) {
+	           if(i < number_of_children()){
             		if(i == 0) {
 			return leftChild;
 			}
@@ -33,7 +39,8 @@
 				return rightChild;
             		}
 			else return NULL;
-        	}
+        		}
+		}
 		virtual void accept(Visitor* visitor, int index) {
                          if (index == 0) {
                                  visitor->visit_mult_begin(this);
@@ -45,6 +52,8 @@
                                  visitor->visit_mult_end(this);
                          }
                 }
- };
+
+ 
+};
 
  #endif //__MULT_HPP__

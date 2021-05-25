@@ -2,14 +2,14 @@
 #define __DIV_HPP__
  
  #include "base.hpp"
- #include "../visitor.hpp"
+ #include "visitor.hpp"
  #include <string>
  #include <iostream>
  
  class Div : public Base {
           private:
                  Base* leftChild = NULL;
-                 Base* rightChild; = NULL;
+                 Base* rightChild = NULL;
           public:
                   Div(Base* left, Base* right) {
                           leftChild = left;
@@ -24,17 +24,25 @@
                           return out.str();
                   }
 		virtual int number_of_children() {
-            		return 2;
+           		int num = 0;
+			if (leftChild != nullptr) {
+				num++;
+			}
+			if (rightChild != nullptr) {
+				num++;
+			}
+			return num;
         	}
         	virtual Base* get_child(int i) {
-           		 if(i == 0) {
+           		if(i < number_of_children()) {
+			 if(i == 0) {
 				return leftChild;
 			 }
                          else if(i == 1) {
 		                return rightChild;
 	                 }
-                         else return NULL;
-                }
+                        }
+		}
 		virtual void accept(Visitor* visitor, int index) {
                           if (index == 0) {
                                  visitor->visit_div_begin(this);
@@ -46,6 +54,8 @@
                                   visitor->visit_div_end(this);
                           }
                  }
- };
+		
+ 
+};
  
  #endif //__DIV_HPP__

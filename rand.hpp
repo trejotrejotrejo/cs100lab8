@@ -2,6 +2,7 @@
 #define __RAND_HPP__
 
 #include "base.hpp"
+#include "visitor.hpp"
 #include <string>
 #include <time.h>
 #include <iostream>
@@ -17,7 +18,7 @@ class Rand: public Base {
 		return 0; 
 	}
         virtual Base* get_child(int i) { 
-		return this; 
+		return nullptr; 
 	}
 	virtual void accept(Visitor* visitor, int index) {
 		visitor->visit_rand(this);
