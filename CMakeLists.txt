@@ -15,4 +15,6 @@ ADD_EXECUTABLE(latexTest
 )
   
 TARGET_LINK_LIBRARIES(iteratorTest gtest)
+TARGET_LINK_LIBRARIES(latexTest gtest)
+TARGET_COMPILE_DEFINITIONS(latexTest PRIVATE gtest_disable_pthreads=ON)
 TARGET_COMPILE_DEFINITIONS(iteratorTest PRIVATE gtest_disable_pthreads=ON)
