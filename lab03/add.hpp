@@ -9,8 +9,8 @@
  
  class Add : public Base {
           private:
-                 Base* leftChild = NULL;
-                 Base* rightChild = NULL;
+                 Base* leftChild;
+                 Base* rightChild;
           public:
                   Add(Base* left, Base* right) {
                           leftChild = left;
