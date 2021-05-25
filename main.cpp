@@ -1,4 +1,3 @@
-
 #include "op.hpp"
 #include "rand.hpp"
 #include "add.hpp"
@@ -9,6 +8,17 @@
 #include "visitor.hpp"
 #include "iterator.hpp"
 #include <iostream>
+
+std::string PrintLaTeX(Base* ptr){
+    Iterator* it = new Iterator(ptr);
+
+    VisitorLaTeX* v = new VisitorLaTeX();
+	for(it; !it->is_done(); it->next()){
+		it->current_node()->accept(v,it->current_index());
+	}
+
+    return v->getString();
+}
 
 int main(){
 	Base* val1 = new Op(1);
