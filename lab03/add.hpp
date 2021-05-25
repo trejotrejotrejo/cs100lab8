@@ -9,14 +9,14 @@
  
  class Add : public Base {
           private:
-                 Base* leftChild;
-                 Base* rightChild;
+                 Base* leftChild = NULL;
+                 Base* rightChild = NULL;
           public:
                   Add(Base* left, Base* right) {
                           leftChild = left;
                           rightChild = right;
                   }
-                   double evaluate() {
+                 virtual double evaluate() {
                           return leftChild->evaluate() + rightChild->evaluate();
                   }
                   virtual std::string stringify() {
@@ -24,10 +24,10 @@
                           out  << leftChild->stringify() << " + " << rightChild->stringify();
                           return out.str();
                   }
-	         int numChildren() {
+	         virtual int numChildren() {
 			return 2;
 		 }
-		 Base* get_child(int i) {
+		 virtual Base* get_child(int i) {
 			if(i == 0) {
 				return leftChild;
 			}
@@ -36,7 +36,7 @@
 			}
 			else return NULL;
 		 }
-		void accept(Visitor* visitor, int index) {
+		virtual void accept(Visitor* visitor, int index) {
 			if (index == 0) {
 				visitor->visit_add_begin(this);
 			}

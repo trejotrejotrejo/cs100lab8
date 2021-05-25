@@ -2,31 +2,31 @@
 #define __DIV_HPP__
  
  #include "base.hpp"
- #include "op.hpp"
+ #include "../visitor.hpp"
  #include <string>
  #include <iostream>
  
  class Div : public Base {
           private:
-                 Base* leftChild;
-                 Base* rightChild;
+                 Base* leftChild = NULL;
+                 Base* rightChild; = NULL;
           public:
                   Div(Base* left, Base* right) {
                           leftChild = left;
                           rightChild = right;
                   }
-                  double evaluate() {
+                  virtual double evaluate() {
                           return leftChild->evaluate() / rightChild->evaluate();
                   }
-                  std::string stringify() {
+                  virtual std::string stringify() {
                           std::stringstream out;
                           out  << leftChild->stringify() << " / " << rightChild->stringify();
                           return out.str();
                   }
-		int number_of_children() {
+		virtual int number_of_children() {
             		return 2;
         	}
-        	Base* get_child(int i) {
+        	virtual Base* get_child(int i) {
            		 if(i == 0) {
 				return leftChild;
 			 }
@@ -35,7 +35,7 @@
 	                 }
                          else return NULL;
                 }
-		void accept(Visitor* visitor, int index) {
+		virtual void accept(Visitor* visitor, int index) {
                           if (index == 0) {
                                  visitor->visit_div_begin(this);
                           }
