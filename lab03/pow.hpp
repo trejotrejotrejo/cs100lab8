@@ -16,10 +16,10 @@ class Pow : public Base {
                         leftChild = left;
                         rightChild = right;
                 }
-                virtual double evaluate() {
+                 double evaluate() {
                         return pow(leftChild->evaluate(), rightChild->evaluate()); 
                 }
-                virtual std::string stringify() {
+                 std::string stringify() {
                         std::stringstream out;
                         out << leftChild->evaluate() << " ^ " << rightChild->evaluate();
                         return out.str();
