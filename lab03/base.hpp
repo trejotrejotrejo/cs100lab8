@@ -6,9 +6,8 @@
 
 class Base {
     public:
-       Base() {}
 
-        virtual ~Base() {}
+        virtual ~Base() = default;
 
         /* Pure Virtual Functions */
         virtual double evaluate() = 0;
