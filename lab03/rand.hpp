@@ -3,6 +3,7 @@
 
 #include "base.hpp"
 #include <string>
+#include <time.h>
 #include <iostream>
 
 class Rand: public Base {
@@ -10,8 +11,8 @@ class Rand: public Base {
 		double num;
     public:
         Rand() { num = rand() % 100; }
-        virtual double evaluate() { return num; }
-        virtual std::string stringify() { return std::to_string(num);}	
+         double evaluate() { return num; }
+         std::string stringify() { return std::to_string(num);}	
 	int number_of_children() { 	
 		return 0; 
 	}
