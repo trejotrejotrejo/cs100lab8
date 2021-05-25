@@ -10,22 +10,23 @@
 
 class Op : public Base {
     private:
-	double num;
+	double val;
+	int num;
     public:
-        Op(double value) : Base() { num = value; }
-        double evaluate() { return num; }
-        std::string stringify() { 
+        Op(double value) : Base() { val = value; num = 0; }
+        virtual double evaluate() { return val; }
+       virtual  std::string stringify() { 
               std::stringstream out;
-              out << num;
+              out << val;
               return out.str();        
         }
-	int numChildren() {
-		return 0;
+	virtual int numChildren() {
+		return num;
 	}
-	Base* get_child(int i) {
+	virtual Base* get_child(int i) {
 		return NULL;
 	}
-	void accept(Visitor* visitor, int index) {
+	virtual void accept(Visitor* visitor, int index) {
 	        visitor->visit_op(this);
         }
 

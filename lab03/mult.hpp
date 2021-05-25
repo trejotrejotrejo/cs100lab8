@@ -14,7 +14,7 @@
                           leftChild = left;
                           rightChild = right;
                   }
-                   double evaluate() {
+	          virtual double evaluate() {
                           return leftChild->evaluate() * rightChild->evaluate();
                   }
                    std::string stringify() {
@@ -22,10 +22,10 @@
                           out  << leftChild->stringify() << " * " << rightChild->stringify();
                           return out.str();
                   }
-		int number_of_children() {
+		virtual int number_of_children() {
            		  return 2;
         	}
-       		 Base* get_child(int i) {
+       		 virtual Base* get_child(int i) {
             		if(i == 0) {
 			return leftChild;
 			}
@@ -34,7 +34,7 @@
             		}
 			else return NULL;
         	}
-		void accept(Visitor* visitor, int index) {
+		virtual void accept(Visitor* visitor, int index) {
                          if (index == 0) {
                                  visitor->visit_mult_begin(this);
                          }

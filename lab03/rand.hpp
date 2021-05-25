@@ -11,15 +11,15 @@ class Rand: public Base {
 		double num;
     public:
         Rand() { num = rand() % 100; }
-         double evaluate() { return num; }
-         std::string stringify() { return std::to_string(num);}	
-	int number_of_children() { 	
+        virtual double evaluate() { return num; }
+       virtual  std::string stringify() { return std::to_string(num);}	
+	virtual int number_of_children() { 	
 		return 0; 
 	}
-        Base* get_child(int i) { 
+        virtual Base* get_child(int i) { 
 		return this; 
 	}
-	void accept(Visitor* visitor, int index) {
+	virtual void accept(Visitor* visitor, int index) {
 		visitor->visit_rand(this);
 	}
 
