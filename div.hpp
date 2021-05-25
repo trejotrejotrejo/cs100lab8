@@ -5,6 +5,7 @@
  #include "visitor.hpp"
  #include <string>
  #include <iostream>
+ #include <sstream>
  
  class Div : public Base {
           private:

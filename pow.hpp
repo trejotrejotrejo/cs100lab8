@@ -6,6 +6,7 @@
 #include <string>
 #include <iostream>
 #include <math.h>
+#include <sstream>
 
 class Pow : public Base {
         private:

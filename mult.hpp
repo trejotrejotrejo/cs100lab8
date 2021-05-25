@@ -4,6 +4,7 @@
  #include "base.hpp"
  #include <string>
  #include <iostream>
+ #include <sstream>
  
  class Mult : public Base {
           private:
