@@ -15,7 +15,7 @@ class Sub : public Base {
                         leftChild = left;
                         rightChild = right;
                 }
-                virtual double evaluate() {
+                 double evaluate() {
                         return leftChild->evaluate() - rightChild->evaluate();
                 }
                 virtual std::string stringify() {
