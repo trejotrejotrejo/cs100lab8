@@ -1,3 +1,4 @@
+
 #ifndef __ADD_HPP__
 #define __ADD_HPP__
  
@@ -12,7 +13,7 @@
                  Base* leftChild = NULL;
                  Base* rightChild = NULL;
           public:
-                  Add(Base* left, Base* right) {
+                 Add(Base* left, Base* right) {
                           leftChild = left;
                           rightChild = right;
                   }
@@ -25,17 +26,19 @@
                           return out.str();
                   }
 	         virtual int numChildren() {
-			return 2;
+			int num = 2;
+			return num;
 		 }
 		 virtual Base* get_child(int i) {
-			if(i == 0) {
+			if(i < number_of_children()) {
+			 if(i == 0) {
 				return leftChild;
-			}
-			else if (i == 1) {
-				return rightChild;
-			}
-			else return NULL;
-		 }
+			 }
+                         else if(i == 1) {
+		                return rightChild;
+	                 }
+                        } 
+		}
 		virtual void accept(Visitor* visitor, int index) {
 			if (index == 0) {
 				visitor->visit_add_begin(this);
@@ -49,3 +52,5 @@
 			}
 };  
  #endif //__ADD_HPP__
+
+ 

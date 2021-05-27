@@ -42,7 +42,7 @@ class Visitor{
 };
 
 class VisitorLaTeX : public Visitor {
-    private:
+    protected:
 	std::string str;
 	
 	

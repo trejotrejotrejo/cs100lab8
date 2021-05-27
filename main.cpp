@@ -8,17 +8,17 @@
 #include "visitor.hpp"
 #include "iterator.hpp"
 #include <iostream>
+using namespace std;
+//std::string PrintLaTeX(Base* ptr){
+//    Iterator* it = new Iterator(ptr);
 
-std::string PrintLaTeX(Base* ptr){
-    Iterator* it = new Iterator(ptr);
+//    VisitorLaTeX* v = new VisitorLaTeX();
+//	for(it; !it->is_done(); it->next()){
+//		it->current_node()->accept(v,it->current_index());
+//	}
 
-    VisitorLaTeX* v = new VisitorLaTeX();
-	for(it; !it->is_done(); it->next()){
-		it->current_node()->accept(v,it->current_index());
-	}
-
-    return v->getString();
-}
+  //  return v->getString();
+//}
 
 int main(){
     Base* val1 = new Op(1);
@@ -36,9 +36,9 @@ int main(){
 
     Add* add = new Add(d1, s2);
 
-    std::cout << add->stringify() << " => \n LaTeX: ";
+    std::cout << add->stringify() << endl;
 
-    std::cout << PrintLaTeX(add) << "\n";
+//   std::cout << PrintLaTeX(add) << "\n";
 
 	return 0;
 }

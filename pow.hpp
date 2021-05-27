@@ -26,11 +26,7 @@ class Pow : public Base {
                         return out.str();
                 }
 		virtual int number_of_children() {
-           		int num = 0;
-                        if(leftChild != nullptr)
-                                ++num;
-                        if(rightChild != nullptr)
-                                ++num;
+           		int num = 2;
                         return num;
         	}
         	virtual Base* get_child(int i) {

@@ -8,8 +8,7 @@
 #include "rand.hpp"
 #include "iterator.hpp"
 #include "visitor.hpp"
-
-//#include "gtest/gtest.h"
+#include "gtest/gtest.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -40,8 +39,8 @@ TEST(LatexTest, subTest){
         for(it; !it->is_done(); it->next()){
                 it->current_node()->accept(v,it->current_index());
         }
-
         EXPECT_EQ(v->getString(), "${({8.000000}-{3.000000})}$");
+
 }
 
 TEST(LatexTest, multTest){
@@ -57,6 +56,7 @@ TEST(LatexTest, multTest){
         }
 
         EXPECT_EQ(v->getString(), "${({3.000000}\\cdot{4.000000})}$");
+
 }
 
 TEST(LatexTest, divTest){
@@ -72,6 +72,7 @@ TEST(LatexTest, divTest){
         }
 
         EXPECT_EQ(v->getString(), "${\\frac{12.000000}{6.000000}}$");
+
 }
 
 TEST(LatexTest, powTest){
@@ -87,6 +88,7 @@ TEST(LatexTest, powTest){
         }
 
         EXPECT_EQ(v->getString(), "${({3.000000}^{2.000000})}$");
+
 }
 
 TEST(LatexTest, treeTest){
@@ -111,6 +113,7 @@ TEST(LatexTest, treeTest){
 
         EXPECT_EQ(v->getString(), "${({\\frac{({3.000000}\\cdot{2.000000})}{({2.000000}-{1.000000})}}+{({2.000000}^{3.000000})})}$");
 }
+
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);

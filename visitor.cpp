@@ -83,3 +83,4 @@ void VisitorLaTeX::visit_pow_middle(POW* node){
 void VisitorLaTeX::visit_pow_end(POW* node){
     str += ")}";
 }
+

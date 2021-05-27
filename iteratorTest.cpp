@@ -9,11 +9,12 @@
 #include <iostream>
 #include <stdio.h>
 #include "iterator.hpp"
-#include "visitor.hpp"
+//#include "visitor.hpp"
 
 using namespace std;
 
-TEST(numChild1, TwoChildUsingAdd) {
+TEST(numChild1, Two_Child_Using_Add)
+{
    Base* num1 = new Op(2);
    Base* num2 = new Op(3);
 
